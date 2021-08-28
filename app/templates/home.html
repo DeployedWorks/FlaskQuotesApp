@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }} - Quotes App</title>
+    </head>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+    <body>        
+        <header>
+            <div>
+               <h1>Inspiring Quotes</h1>
+            </div>
+        </header>
+
+        <div class="display_quotes">
+            <table>
+                <tr>
+                  <th>Quote Id</th>
+                  <th>Quote Text</th>
+                  <th>Quote By</th>
+                </tr>
+                {% for i in range(n) %}
+                <tr>
+                    <td>{{ data['qids'][i] }}</td>
+                    <td>{{ data['qts'][i] }}</td>
+                    <td>{{ data['qbs'][i] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+        </div>
+
+        <form action="/submit" method="GET">
+            <input type="text" name="quotetext" id="quotetext" placeholder="Quote Text">
+            <input type="text" name="quoteby" id="quoteby" placeholder="Quote By">
+            <button type="submit">Add</button>
+        </form>
+    </body>
+</html>
